@@ -6,20 +6,12 @@
 using namespace std;
 
 
+CirculardoubleLinklist::~CirculardoubleLinklist() 
+{
 
-Node::Node(int data) : data(data), next(nullptr), prev(nullptr) {}
+    if (!Head) return;
 
-
-
-CircularDoublyLinkedList::CircularDoublyLinkedList() : head(nullptr) {}
-
-
-
-CircularDoublyLinkedList::~CircularDoublyLinkedList() {
-
-    if (!head) return;
-
-    Node* current = head;
+    Node* current = Head;
 
     do {
 
@@ -29,7 +21,7 @@ CircularDoublyLinkedList::~CircularDoublyLinkedList() {
 
         current = next;
 
-    } while (current != head);
+    } while (current != Head);
 
 }
 
@@ -40,9 +32,10 @@ void CirculardoubleLinklist::append(double data)
 
  Node* newNode = new Node(data);
 
-    if (!head) {
+    if (!Head) 
+    {
 
-        head = newNode;
+        Head = newNode;
 
         newNode->next = newNode;
 
@@ -51,15 +44,15 @@ void CirculardoubleLinklist::append(double data)
     }
     else {
 
-        Node* last = head->prev;
+        Node* last = Head->prev;
 
         last->next = newNode;
 
         newNode->prev = last;
 
-        newNode->next = head;
+        newNode->next = Head;
 
-        head->prev = newNode;
+        Head->prev = newNode;
 
     }
 
@@ -67,12 +60,12 @@ void CirculardoubleLinklist::append(double data)
 
 
 
-void CircularDoublyLinkedList::display() 
+void CirculardoubleLinklist::display() 
 {
 
-    if (!head) return;
+    if (!Head) return;
 
-    Node* current = head;
+    Node* current = Head;
 
     do {
 
@@ -80,7 +73,7 @@ void CircularDoublyLinkedList::display()
 
         current = current->next;
 
-    } while (current != head);
+    } while (current != Head);
 
     cout << endl;
 
@@ -91,24 +84,25 @@ void CircularDoublyLinkedList::display()
 void CirculardoubleLinklist::performAssignments() 
 {
 
-    if (!head) return;
+    if (!Head) return;
 
-    head->next->next->next = head->prev;
+    Head->next->next->next = Head->prev;
 
-    head->prev->prev->prev = head->next->next->next->prev;
+    Head->prev->prev->prev = Head->next->next->next->prev;
 
-    head->next->next->next->prev = head->prev->prev->prev;
+    Head->next->next->next->prev = Head->prev->prev->prev;
 
-    head->next = head->next->next;
+    Head->next = Head->next->next;
 
-    head->next->prev->next = head->next->next->next;
+    Head->next->prev->next = Head->next->next->next;
 
 }
 
 
 
-Node* CircularDoublyLinkedList::getHead() {
+Node* CirculardoubleLinklist::getHead() 
+{
 
-    return head;
+    return Head;
 
 }
