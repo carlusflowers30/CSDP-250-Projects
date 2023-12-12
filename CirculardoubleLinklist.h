@@ -1,5 +1,5 @@
-//carlus flowers
-//1305448
+//Kaleigha Hayes
+//1313037
 #ifndef CirculardoubleLinklist_h
 #define CirculardoubleLinklist_h
 
