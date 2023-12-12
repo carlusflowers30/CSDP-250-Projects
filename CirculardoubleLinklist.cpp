@@ -1,5 +1,5 @@
-//carlus flowers
-//1305448
+//Kaleigha Hayes
+//1313037
 
 #include "CirculardoubleLinklist.h"
 #include <iostream>
